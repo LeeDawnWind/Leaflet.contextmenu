@@ -14,7 +14,9 @@
           cm,
           ll = new L.LatLng(-36.852668, 174.762675),
           ll2 = new L.LatLng(-36.86, 174.77);
-
+      function circleContextmenu(e){
+	      alert("I don't get 'e.relatedTarget' about this a circle");
+      }
       function showCoordinates (e) {
 	      alert(e.latlng);
       }
@@ -75,6 +77,15 @@
               text: 'Marker item'
           }]
       }).addTo(map);
+	    
+      L.circle(ll,{radius:500,
+      contextmenu: true,
+      contextmenuInheritItems: false,
+      contextmenuItems: [{
+          text: 'circle',
+		  callback:circleContextmenu
+      }]
+  }).addTo(map);
 
     </script>
   </body>
